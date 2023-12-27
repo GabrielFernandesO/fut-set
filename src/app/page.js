@@ -9,11 +9,11 @@ export default function Login() {
       <form className=" h-[30rem] w-[40rem] mt-4 flex items-center flex-col space-y-4">
         <div className="flex flex-col mt-20 mb-8 ">
           <label>Email:</label>
-          <div className="">
-            
-              <FaRegEnvelope/>
-          
-            <input type="email" className="h-7 w-32 border-b-2 outline-none" placeholder='you@example.com'></input>
+          <div className="flex items-center w-[15rem] border-b-2 border-gray-200 pl-1">
+            <span className="pr-1">
+              <FaRegEnvelope className="text-gray-500" />
+            </span>
+            <input type="email" className="h-7 w-64 border-0 outline-none" placeholder='you@example.com'></input>
           </div>
 
         </div>
