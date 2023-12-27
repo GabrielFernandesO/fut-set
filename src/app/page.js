@@ -1,3 +1,4 @@
+import { FaRegEnvelope } from "react-icons/fa";
 export default function Login() {
   return (
     <main className="flex flex-col items-center h-screen">
@@ -8,7 +9,13 @@ export default function Login() {
       <form className=" h-[30rem] w-[40rem] mt-4 flex items-center flex-col space-y-4">
         <div className="flex flex-col mt-20 mb-8 ">
           <label>Email:</label>
-          <input type="email" className="h-7 w-[15rem] border-b-2 outline-none" placeholder='you@example.com'></input>
+          <div className="">
+            
+              <FaRegEnvelope/>
+          
+            <input type="email" className="h-7 w-32 border-b-2 outline-none" placeholder='you@example.com'></input>
+          </div>
+
         </div>
         <div className="flex flex-col" >
           <label>Password</label>
@@ -16,24 +23,24 @@ export default function Login() {
         </div>
         <div className="">
           <a className="ml-28 text-xs cursor-pointer hover:text-gray-400 text-gray-600">
-            Forgot your password? 
+            Forgot your password?
           </a>
         </div>
-       <div>
+        <div>
           <button className=" bg-blue-500 h-8 w-28 rounded-lg text-white hover:bg-blue-600 mt-10">
             LOGIN
           </button>
-          
-          </div>
-          <div>
-            <p > 
-              Do not have an account?
-              <span className="pl-1 text-blue-500 hover:text-blue-700 cursor-pointer">
-                 Register Now
-              </span>
-            </p>
-          </div>
-     
+
+        </div>
+        <div>
+          <p >
+            Do not have an account?
+            <span className="pl-1 text-blue-500 hover:text-blue-700 cursor-pointer">
+              Register Now
+            </span>
+          </p>
+        </div>
+
       </form>
 
     </main>
