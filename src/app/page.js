@@ -1,5 +1,17 @@
+"use client"
+
 import { FaRegEnvelope } from "react-icons/fa";
+import { MdOutlineLock } from "react-icons/md";
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
+import { useState } from "react";
 export default function Login() {
+
+const [showPassword, setShowPassword] = useState(false)
+function togglePassword(){
+  setShowPassword(!showPassword)
+}
+
   return (
     <main className="flex flex-col items-center h-screen">
       <div className="text-center mt-20">
@@ -19,7 +31,26 @@ export default function Login() {
         </div>
         <div className="flex flex-col" >
           <label>Password</label>
-          <input type="password" className="h-7 w-[15rem] border-b-2 outline-none " placeholder='12345@'></input>
+          <div className="flex items-center w-[15rem] border-b-2 border-gray-200 pl-1">
+          <span className="pr-0.5">
+          <MdOutlineLock className="text-gray-500 text-md" />
+          </span>
+            
+              <input type={!showPassword ? "password" : "text"}
+               className="h-7 w-64 border-0 outline-none " placeholder='12345@'></input>
+            
+            
+            <span className="pr-2 cursor-pointer">
+              { !showPassword && (
+                <LuEye onClick ={togglePassword}/>
+              )}
+              { showPassword && (
+                <LuEyeOff onClick = {togglePassword}/>
+              )}
+            </span>
+            
+          </div>
+
         </div>
         <div className="">
           <a className="ml-28 text-xs cursor-pointer hover:text-gray-400 text-gray-600">
