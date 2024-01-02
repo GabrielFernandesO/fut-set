@@ -4,6 +4,7 @@ import { Rajdhani } from 'next/font/google'
 import './globals.css'
 import NavBar from './components/NavBar/NavBar'
 import { usePathname } from 'next/navigation'
+import Footer from './components/Footer/Footer'
 
 
 
@@ -26,7 +27,9 @@ export default function RootLayout({ children }) {
         )}
         
         {children}
+        <Footer></Footer>
       </body>
+      
     </html>
   )
 }

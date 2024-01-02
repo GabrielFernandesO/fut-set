@@ -1,13 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import { IoSearchOutline } from "react-icons/io5";
 
 export default function NavBar() {
     return (
         <navbar>
-            <div className="bg-neutral-800 h-28 flex">
+            <div className="bg-bege h-28 flex">
                 <div className="h-full w-1/5 flex items-center justify-start pl-8">
-                    <div className="bg-white h-16 w-16 rounded-full">
-                    </div>
+                    
+                    <Image src={'/logo.png'} width={115} height={10} alt = 'logo'  />
+                        
+                    
                 </div>
                 <div className=" h-full w-3/5 items-center flex justify-center">
                     <div className="flex h-8 w-80 rounded-xl bg-white pr-2 pl-2">
@@ -16,29 +19,34 @@ export default function NavBar() {
                     </div>
                 </div>
                 <div className="h-28 w-1/5 flex items-center justify-end space-x-8 pr-8 ">
-                    <div className="bg-white h-16 w-16 rounded-full">
+                    <div className=" h-11 w-11 rounded-full">
+                        <Image src={'/userClub.png'} width={44} height={44} alt = 'userClub' className="rounded-full" />
+                        
                     </div>
-                    <div className="bg-white h-16 w-16 rounded-full">
+                    <div className=" bg-gray h-12 w-12 rounded-full">
+                        <Image src={'/user.png'} width={64} height={64} alt= 'user'/>
                     </div>
                 </div>
             </div>
-            <div className="bg-amber-200 h-16 flex items-center justify-center">
-                <ul className="flex space-x-12 text-xl">
+            <div className="bg-vermelho h-16 flex items-center justify-center shadow-xl ">
+                <ul className="text-bege flex space-x-12 text-xl">
                     <li>
-                        <Link className="hover:text-white transition duration-300 font-semibold" href={"/home/news"}>NEWS</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/news"}>NEWS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-white transition duration-300 font-semibold" href={"/home/clubs"}>CLUBS</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/clubs"}>CLUBS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-white transition duration-300 font-semibold" href={"/home/leagues"}>LEAGUES</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/leagues"}>LEAGUES</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-white transition duration-300 font-semibold" href={"/home/social"}>SOCIAL</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/social"}>SOCIAL</Link>
                     </li>
                 </ul>
-
+                
             </div>
+            
+             
         </navbar>
     )
 }
