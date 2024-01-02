@@ -28,7 +28,10 @@ module.exports = {
       bermuda: '#78dcca',
       black: '#0c0a09',
       gray: '#fafaf9',
-      
+      blue_sky: '#7dd3fc',
+      blue_sky_strong: '#0ea5e9',
+      green: '#22c55e',
+      gray_strong: '#6b7280'
 
 
       

@@ -1,16 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoSearchOutline } from "react-icons/io5";
+import  { useRouter } from "next/navigation";
 
 export default function NavBar() {
+
+    const router = useRouter()
+
+    const goHome = () => {
+        return router.push('/home')
+    }
+
     return (
         <navbar>
             <div className="bg-bege h-28 flex">
-                <div className="h-full w-1/5 flex items-center justify-start pl-8">
-                    
-                    <Image src={'/logo.png'} width={115} height={10} alt = 'logo'  />
-                        
-                    
+                <div className="h-full w-1/5 flex items-center justify-start pl-8"> 
+                    <Image src={'/logo.png'} width={115} height={10} alt = 'logo' className="cursor-pointer"  onClick={goHome}/>    
                 </div>
                 <div className=" h-full w-3/5 items-center flex justify-center">
                     <div className="flex h-8 w-80 rounded-xl bg-white pr-2 pl-2">

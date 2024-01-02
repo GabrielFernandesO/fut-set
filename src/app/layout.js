@@ -5,6 +5,8 @@ import './globals.css'
 import NavBar from './components/NavBar/NavBar'
 import { usePathname } from 'next/navigation'
 import Footer from './components/Footer/Footer'
+import { Suspense } from 'react'
+import Loading from './home/loading'
 
 
 
@@ -25,8 +27,9 @@ export default function RootLayout({ children }) {
         {(pathName !== '/') && (
           <NavBar></NavBar>
         )}
-        
+        <Suspense fallback={<Loading/>}>
         {children}
+        </Suspense>
         <Footer></Footer>
       </body>
       

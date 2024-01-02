@@ -1,0 +1,10 @@
+
+/* Cor de fundo do autocomplete */
+.form_login input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+/* Cor do texto do autocomplete */
+.form_login input:-webkit-autofill {
+    -webkit-text-fill-color:  black !important;
+}

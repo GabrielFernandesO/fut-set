@@ -5,7 +5,7 @@ import { MdOutlineLock } from "react-icons/md";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { useState } from "react";
-
+import styles from './page.module.css'
 
 export default function Login() {
 
@@ -22,14 +22,14 @@ function togglePassword(){
         <h1 className="text-2xl ">VELKOMMEN</h1>
         <h1 className="text-2xl ">SIGN IN TO CONTINUE</h1>
       </div>
-      <form className=" h-[30rem] w-[40rem] mt-4 flex items-center flex-col space-y-4">
+      <form className={` h-[30rem] w-[40rem] mt-4 flex items-center flex-col space-y-4 form_login ${styles.form_login}`} >
         <div className="flex flex-col mt-20 mb-8 ">
           <label>Email:</label>
           <div className="flex items-center w-[15rem] border-b-2 border-gray-200 focus-within:border-gray-300 pl-1">
             <span className="pr-1">
               <FaRegEnvelope className="text-gray-500" />
             </span>
-            <input type="email"  className="h-7 w-64 border-0 outline-none" placeholder='Ex: you@example.com'></input>
+            <input type="email"  className="h-7 w-64 border-0 outline-none autofill:bg-white" placeholder='Ex: you@example.com'></input>
           </div>
 
         </div>
@@ -41,7 +41,7 @@ function togglePassword(){
           </span>
             
               <input type={!showPassword ? "password" : "text"}
-               className="h-7 w-64 border-0 outline-none " placeholder='Ex: 12345@'></input>
+               className="h-7 w-64 border-0 outline-none autofill:bg-white" placeholder='Ex: 12345@'></input>
             
             
             <span className="pr-2 cursor-pointer">
@@ -62,7 +62,7 @@ function togglePassword(){
           </a>
         </div>
         <div>
-          <button className=" bg-sky-400 h-8 w-28 rounded-lg text-white hover:bg-sky-500 mt-10">
+          <button className=" bg-blue_sky h-8 w-28 rounded-lg text-white hover:bg-blue_sky_strong mt-10">
             LOGIN
           </button>
 
