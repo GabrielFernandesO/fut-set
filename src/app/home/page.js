@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from "react"
-import DuringCard from "../components/Cards/duringCard"
-import PreCard from "../components/Cards/preCard"
-import PosCard from "../components/Cards/posCard"
+import DuringCard from "../components/Cards/DuringCard"
+import PreCard from "../components/Cards/PreCard"
+import PosCard from "../components/Cards/PosCard"
 import Leagues from "../components/Leagues/Leagues"
+import Odd from "../components/Odd/Odd"
+import TablePlayers from "../components/TablePlayers/TablePlayers"
 
 export default function Home() {
 
@@ -25,19 +27,11 @@ export default function Home() {
                 <Leagues></Leagues>
             </div>
             <section className="bg h-full w-[50rem]"></section>
-            <div className=" mt-4 bg-white h-60 w-72 rounded-xl shadow-lg">
-                <div className="bg-vermelho rounded-t-xl  h-12 w-72 flex items-center justify-center">
-                    <h1 className="text-white">BEST ODDS</h1>
-                </div>
-                <div className="bg-white h-16 w-72 border-b   "></div>
-                <div className="bg-white h-16 w-72 border-b "></div>
-                <div className="bg-white h-16 w-72 rounded-b-xl "></div>
-               
-
-                
-            
-
+           <div className="h-full flex-col flex items-center justifiy-center ">
+           <Odd></Odd>
+           <TablePlayers></TablePlayers>
             </div>
+           
         </main>
     )
 }
