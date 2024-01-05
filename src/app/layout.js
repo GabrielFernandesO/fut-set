@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/NavBar'
 import { usePathname } from 'next/navigation'
 import Footer from './components/Footer/Footer'
 import { Suspense } from 'react'
-import Loading from './home/loading'
+import Loading from './loading'
 
 
 
@@ -17,22 +17,25 @@ export default function RootLayout({ children }) {
 
   const pathName = usePathname()
 
-  
+
   return (
     <html lang="en">
-    
+
 
       <body className={rajdhani.className}>
-        
-        {(pathName !== '/') && (
+
+        {(pathName !== '/login') && (
           <NavBar></NavBar>
         )}
-        <Suspense fallback={<Loading/>}>
-        {children}
+        <Suspense fallback={<Loading />}>
+          {children}
         </Suspense>
-        <Footer></Footer>
+        {(pathName !== '/login') && (
+          <Footer></Footer>
+        )}
+
       </body>
-      
+
     </html>
   )
 }

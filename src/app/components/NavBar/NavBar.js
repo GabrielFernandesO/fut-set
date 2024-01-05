@@ -8,7 +8,7 @@ export default function NavBar() {
     const router = useRouter()
 
     const goHome = () => {
-        return router.push('/home')
+        return router.push('/')
     }
 
     return (
@@ -36,16 +36,16 @@ export default function NavBar() {
             <div className="bg-vermelho h-16 flex items-center justify-center shadow-xl ">
                 <ul className="text-bege flex space-x-12 text-xl">
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/news"}>NEWS</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/news"}>NEWS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/clubs"}>CLUBS</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/clubs"}>CLUBS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/leagues"}>LEAGUES</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/leagues"}>LEAGUES</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/home/social"}>SOCIAL</Link>
+                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/social"}>SOCIAL</Link>
                     </li>
                 </ul>
                 

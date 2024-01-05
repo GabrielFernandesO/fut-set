@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react"
-import DuringCard from "../components/Cards/DuringCard"
-import PreCard from "../components/Cards/PreCard"
-import PosCard from "../components/Cards/PosCard"
+import DuringCard from "../components/Cards/duringCard"
+import PreCard from "../components/Cards/preCard"
+import PosCard from "../components/Cards/posCard"
 import Leagues from "../components/Leagues/Leagues"
 import Odd from "../components/Odd/Odd"
 import TablePlayers from "../components/TablePlayers/TablePlayers"
