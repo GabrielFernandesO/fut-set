@@ -15,7 +15,7 @@ export default function NavBar() {
         <navbar>
             <div className="bg-bege h-28 flex">
                 <div className="h-full w-1/5 flex items-center justify-start pl-8"> 
-                    <Image src={'/logo.png'} width={115} height={10} alt = 'logo' className="cursor-pointer"  onClick={goHome}/>    
+                    <Image src={'/logo.png'} width={180} height={30} alt = 'logo' className="cursor-pointer"  onClick={goHome}/>    
                 </div>
                 <div className=" h-full w-3/5 items-center flex justify-center">
                     <div className="flex h-8 w-80 rounded-xl bg-white pr-2 pl-2">
@@ -24,11 +24,11 @@ export default function NavBar() {
                     </div>
                 </div>
                 <div className="h-28 w-1/5 flex items-center justify-end space-x-8 pr-8 ">
-                    <div className=" h-11 w-11 rounded-full">
-                        <Image src={'/userClub.png'} width={44} height={44} alt = 'userClub' className="rounded-full" />
+                    <div className=" h-10 w-10  rounded-full">
+                        <Image src={'/userClub.png'} width={64} height={44} alt = 'userClub' className="rounded-full" />
                         
                     </div>
-                    <div className=" bg-gray h-12 w-12 rounded-full">
+                    <div className=" h-10 w-10 rounded-full">
                         <Image src={'/user.png'} width={64} height={64} alt= 'user'/>
                     </div>
                 </div>

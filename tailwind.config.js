@@ -16,8 +16,8 @@ module.exports = {
         
     },
     colors: {
-      bege: '#FFF8DA',
-      vermelho: '#A01B21',
+      bege: '#1C4D74',
+      vermelho: '#D8AE5E',
       white: '#ffffff',
       purple: '#3f3cbb',
       midnight: '#121063',
@@ -32,6 +32,7 @@ module.exports = {
       blue_sky_strong: '#0ea5e9',
       green: '#22c55e',
       gray_strong: '#6b7280'
+      
 
 
       
