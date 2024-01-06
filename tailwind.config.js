@@ -16,8 +16,9 @@ module.exports = {
         
     },
     colors: {
-      bege: '#1C4D74',
-      vermelho: '#D8AE5E',
+      blue: '#1C4D74',
+      blue_weak: '#2b76b2',
+      bege: '#D8AE5E',
       white: '#ffffff',
       purple: '#3f3cbb',
       midnight: '#121063',

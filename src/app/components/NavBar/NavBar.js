@@ -13,9 +13,9 @@ export default function NavBar() {
 
     return (
         <navbar>
-            <div className="bg-bege h-28 flex">
-                <div className="h-full w-1/5 flex items-center justify-start pl-8"> 
-                    <Image src={'/logo.png'} width={180} height={30} alt = 'logo' className="cursor-pointer"  onClick={goHome}/>    
+            <div className="bg-blue h-28 flex">
+                <div className="max-h-full w-1/5 flex items-center justify-start pl-8  "> 
+                    <Image src={'/logo.png'} width={160} height={1} alt = 'logo' className="cursor-pointer  h-full"  onClick={goHome}/>    
                 </div>
                 <div className=" h-full w-3/5 items-center flex justify-center">
                     <div className="flex h-8 w-80 rounded-xl bg-white pr-2 pl-2">
@@ -33,19 +33,19 @@ export default function NavBar() {
                     </div>
                 </div>
             </div>
-            <div className="bg-vermelho h-16 flex items-center justify-center shadow-xl ">
-                <ul className="text-bege flex space-x-12 text-xl">
+            <div className="bg-bege h-16 flex items-center justify-center shadow-xl ">
+                <ul className="text-blue flex space-x-12 text-xl">
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/news"}>NEWS</Link>
+                        <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/news"}>NEWS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/clubs"}>CLUBS</Link>
+                        <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/clubs"}>CLUBS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/leagues"}>LEAGUES</Link>
+                        <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/leagues"}>LEAGUES</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-black transition duration-300 font-semibold" href={"/social"}>SOCIAL</Link>
+                        <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/social"}>SOCIAL</Link>
                     </li>
                 </ul>
                 

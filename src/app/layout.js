@@ -24,13 +24,13 @@ export default function RootLayout({ children }) {
 
       <body className={rajdhani.className}>
 
-        {(pathName !== '/login') && (
+        {(pathName !== ('/login' && '/register')) && (
           <NavBar></NavBar>
         )}
         <Suspense fallback={<Loading />}>
           {children}
         </Suspense>
-        {(pathName !== '/login') && (
+        {(pathName !== ('/login' && '/register')) && (
           <Footer></Footer>
         )}
 

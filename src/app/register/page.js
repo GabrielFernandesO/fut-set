@@ -5,9 +5,9 @@ import { MdOutlineLock } from "react-icons/md";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { useState } from "react";
-import styles from './page.module.css'
 
-export default function Login() {
+
+export default function Register() {
 
     const [showPassword, setShowPassword] = useState(false)
     
@@ -20,9 +20,9 @@ export default function Login() {
     
           <div className="text-center mt-20">
             <h1 className="text-2xl ">VELKOMMEN</h1>
-            <h1 className="text-2xl ">SIGN IN TO CONTINUE</h1>
+            <h1 className="text-2xl ">REGISTER</h1>
           </div>
-          <form className={` h-[30rem] w-[40rem] mt-4 flex items-center flex-col space-y-4 form_login ${styles.form_login}`} >
+          <form className={` h-[30rem] w-[40rem] mt-4 flex items-center flex-col space-y-4 form_login`} >
             <div className="flex flex-col mt-20 mb-8 ">
               <label>Email:</label>
               <div className="flex items-center w-[15rem] border-b-2 border-gray-200 focus-within:border-gray-300 pl-1">
