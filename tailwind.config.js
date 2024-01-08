@@ -32,7 +32,9 @@ module.exports = {
       blue_sky: '#7dd3fc',
       blue_sky_strong: '#0ea5e9',
       green: '#22c55e',
-      gray_strong: '#6b7280'
+      gray_strong: '#6b7280',
+      blue_dark: '#1E5480',
+      gray_weak:'#D9D9D9',
       
 
 

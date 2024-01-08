@@ -15,7 +15,7 @@ export default function NavBar() {
         <navbar>
             <div className="bg-blue h-28 flex">
                 <div className="max-h-full w-1/5 flex items-center justify-start pl-8  "> 
-                    <Image src={'/logo.png'} width={160} height={1} alt = 'logo' className="cursor-pointer  h-full"  onClick={goHome}/>    
+                    <Image src={'/logo.png'} width={140} height={1} alt = 'logo' className="cursor-pointer  h-full"  onClick={goHome}/>    
                 </div>
                 <div className=" h-full w-3/5 items-center flex justify-center">
                     <div className="flex h-8 w-80 rounded-xl bg-white pr-2 pl-2">
