@@ -4,6 +4,14 @@
 
 
 * input:-webkit-autofill{
-    -webkit-box-shadow: 0 0 0 30px white inset;
-    -webkit-text-fill-color:  black !important;
+    -webkit-box-shadow: 0 0 0 #1C4D74 inset;
+    -webkit-text-fill-color:  #ccc !important;
 }/* Cor de fundo do autocomplete */
+
+/* Change the white to any color */
+* input:-webkit-autofill,
+* input:-webkit-autofill:hover, 
+* input:-webkit-autofill:focus, 
+* input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgb(30, 84, 128) inset !important;
+}
