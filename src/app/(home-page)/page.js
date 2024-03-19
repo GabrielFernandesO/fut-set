@@ -10,11 +10,11 @@ import TablePlayers from "../components/TablePlayers/TablePlayers"
 
 export default function Home() {
 
-    const [gameControl, setGameControl] = useState('prematch')
+    const [gameControl, setGameControl] = useState('posmatch')
 
     return (
         <main className="flex h-screen">
-            <div className="bg pt-4 pb-4 h-full w-80 flex-col items-center flex  ">
+            <div className="bg pt-4 pb-4 h-full w-1/5 flex-col items-center flex space-y-6  ">
                 {gameControl === 'prematch' && (
                     <PreCard></PreCard>
                 )}
@@ -26,8 +26,8 @@ export default function Home() {
                 )}
                 <Leagues></Leagues>
             </div>
-            <section className="bg h-full w-[50rem]"></section>
-           <div className="h-full flex-col flex items-center justifiy-center ">
+            <section className="bg h-full w-3/5"></section>
+           <div className="pt-4 pb-4 h-full w-1/5  flex-col flex items-center justifiy-center space-y-6 ">
            <Odd></Odd>
            <TablePlayers></TablePlayers>
             </div>
