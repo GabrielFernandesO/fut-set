@@ -10,11 +10,10 @@ export default function PosCard() {
     function escolherNumeroAleatorio() {
         const numeros = [33, 40, 42, 47, 49, 50, 529, 530, 541, 496, 505, 489, 85, 212, 211, 228];
         const indiceAleatorio = Math.floor(Math.random() * numeros.length);
+        //Armazena o número aleatório na variavel randomNumber pelo método set do hook useState
         setRandomNumber(numeros[indiceAleatorio]);
 
     }
-
-    //Variavel que armazena o retorno da função aleatória
 
     //Requisição para API
     async function getMatch(numero) {
@@ -34,6 +33,7 @@ export default function PosCard() {
 
         try {
             const response = await axios.request(options);
+            //Armazena a resposta da API na variavel arrayClub
             setArrayClub(response.data);
             console.log(response.data);
         } catch (error) {
@@ -46,11 +46,15 @@ export default function PosCard() {
 
 
 /*     useEffect(() => {
+            //Condicional para evitar duas chaamdas da Função de random number e Requisição
 
         if (!randomNumber) {
             escolherNumeroAleatorio();
         }
-
+            //Só irá chamar a requisição quando arrayClub não existir (Ou seja, não tiver sido chamada)
+            //E existir um número aleatório já criado
+            //Condicional AND
+            
         if (!arrayClub && randomNumber) {
             getMatch(randomNumber);
         }
