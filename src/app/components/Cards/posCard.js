@@ -45,7 +45,7 @@ export default function PosCard() {
 
 
 
-/*     useEffect(() => {
+     /*useEffect(() => {
             //Condicional para evitar duas chaamdas da Função de random number e Requisição
 
         if (!randomNumber) {
@@ -66,20 +66,20 @@ export default function PosCard() {
         <>
         {/* Criar um mini loading aqui para quando não tiver informação carregada ainda */}
             {arrayClub && (
-                <div className=" bg-white h-32 w-72 rounded-xl shadow-lg flex space-x-6 justify-center items-center">
+                <div className=" bg-white h-36 w-full rounded-xl shadow-lg flex justify-center items-center">
 
-                    <div className="mt-4 flex flex-col items-center justify-center space-y-1">
-                        <div className=" bg-bege h-16 w-16 rounded-full">
+                    <div className="w-1/3 space-y-2  flex flex-col items-center justify-center ">
+                        <div className="  h-16 w-16 rounded-full">
                             <Image src={arrayClub.response[0].teams.home.logo} height={64} width={64} alt='logoHome'></Image>
                         </div>
                             <h1>{arrayClub.response[0].teams.home.name}</h1>
                     </div>
-                    <div className="mb-4 flex-col flex  items-center justify-center space-y-2">
-                        <h3 className="text-md text-gray_strong">{arrayClub.response[0].fixture.status.long}</h3>
-                        <h1 className="text-xl"><span className="pr-1">{arrayClub.response[0].goals.home}</span>X<span className="pl-1">{arrayClub.response[0].goals.away}</span></h1>
+                    <div className="h-full w-1/3  flex-col flex  items-center  ">
+                        <h3 className="mt-4 text-md text-gray_strong">{arrayClub.response[0].fixture.status.long}</h3>
+                        <h1 className="text-5xl font-bold"><span className="pr-2">{arrayClub.response[0].goals.home}</span>-<span className="pl-2">{arrayClub.response[0].goals.away}</span></h1>
                     </div>
-                    <div className="mt-4 flex flex-col items-center justify-center space-y-1">
-                        <div className="bg-bege h-16 w-16 rounded-full">
+                    <div className="w-1/3 space-y-2 flex flex-col items-center justify-center ">
+                        <div className=" h-16 w-16 rounded-full">
                         <Image src={arrayClub.response[0].teams.away.logo} height={64} width={64} alt='logoAway'></Image>
                         </div>
                             <h1>{arrayClub.response[0].teams.away.name}</h1>
