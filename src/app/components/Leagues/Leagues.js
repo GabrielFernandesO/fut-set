@@ -9,13 +9,11 @@ export default function Leagues() {
 
     // Requisição para API
     async function getLeague() {
-        const leagues = '39-78-135-140-61-13-2-3-94'
+        
         const options = {
             method: 'GET',
-            url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
-            params: {
-                ids: `${leagues}`
-            },
+            url: 'https://api-football-v1.p.rapidapi.com/v3/leagues',
+            
             headers: {
                 'X-RapidAPI-Key': '56055e130dmshe17a666f9a8c569p1ac1f4jsn69aa95a23715',
                 'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
@@ -25,10 +23,14 @@ export default function Leagues() {
         try {
             const response = await axios.request(options);
             //Converte obj em array para ser mapeado no jsx
-            const array = await Object.values(response.data.response)
+            const array = await (response.data.response)
+            console.log(array);
+            const leagues = [39,78,135,140,61,13,2,3,94]
+            const finalLeagues = array.filter(object=> leagues.includes(object.league.id))
+            
             // Armazena a resposta da API na variável arrayLeague
             setCallApi(true);
-            setArrayLeague(array);
+            setArrayLeague(finalLeagues);
         } catch (error) {
             console.error(error);
         }
