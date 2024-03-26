@@ -10,9 +10,10 @@ export default function PosCard() {
     //Requisição para API
     async function getMatch() {
 
+        //Cria numero aleatorio
         const numeros = [33, 40, 42, 47, 49, 50, 529, 530, 541, 496, 505, 489, 85, 212, 211, 228];
         const indiceAleatorio = Math.floor(Math.random() * numeros.length);
-
+        //Aramazena o numero aleatorio cada vez q roda a function
         const randomNumber = numeros[indiceAleatorio]
 
         const options = {
@@ -49,7 +50,8 @@ export default function PosCard() {
 
 
      useEffect(() => {
-            //CORRIGIR DPS DUAS CHAMADAS DA API
+            //EM AMBIENTE DE DEV O USEFFECT MONTA E REMONTA POR ISSO CHAMA 2X
+            //MAS EM BUILD/ PRODUÇÃO NÃO IRÁ ACONTECER
 
             //armazena no storage a ultima req feita o tempo
             const lastReq = localStorage.getItem('lastReq')
