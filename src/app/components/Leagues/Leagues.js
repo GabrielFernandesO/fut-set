@@ -8,7 +8,7 @@ export default function Leagues() {
     const [callApi, setCallApi] = useState(false);
 
     // Requisição para API
-    async function getLeague() {
+   /*  async function getLeague() {
         
         const options = {
             method: 'GET',
@@ -41,7 +41,7 @@ export default function Leagues() {
             getLeague();
         }
     }, [arrayLeague]);
-
+ */
 
     console.log("Array League:", arrayLeague)
 

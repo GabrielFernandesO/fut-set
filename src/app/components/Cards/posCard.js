@@ -6,23 +6,21 @@ export default function PosCard() {
     const [randomNumber, setRandomNumber] = useState(null)
     const [arrayClub, setArrayClub] = useState(null)
 
-    //Função que gera um número aleatório de um array e o retorna.
-    function escolherNumeroAleatorio() {
-        const numeros = [33, 40, 42, 47, 49, 50, 529, 530, 541, 496, 505, 489, 85, 212, 211, 228];
-        const indiceAleatorio = Math.floor(Math.random() * numeros.length);
-        //Armazena o número aleatório na variavel randomNumber pelo método set do hook useState
-        setRandomNumber(numeros[indiceAleatorio]);
-
-    }
 
     //Requisição para API
-    async function getMatch(numero) {
+    async function getMatch() {
+
+        const numeros = [33, 40, 42, 47, 49, 50, 529, 530, 541, 496, 505, 489, 85, 212, 211, 228];
+        const indiceAleatorio = Math.floor(Math.random() * numeros.length);
+
+        const randomNumber = numeros[indiceAleatorio]
+
         const options = {
             method: 'GET',
             url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
             params: {
                 last: 1,
-                team: `${numero}`,
+                team: `${randomNumber}`,
                 season: '2023'
             },
             headers: {
@@ -35,6 +33,11 @@ export default function PosCard() {
             const response = await axios.request(options);
             //Armazena a resposta da API na variavel arrayClub
             setArrayClub(response.data);
+            //Armazena o momento da hora q a req foi feita
+            localStorage.setItem('lastReq', Date.now())
+            //armazena o array em STRING no local storage pq ele só aceita string, logo precisa converter em string o json
+            //e depois converter para JSON.parse
+            localStorage.setItem('array', JSON.stringify(response.data))
             console.log(response.data);
         } catch (error) {
             console.error(error);
@@ -45,22 +48,29 @@ export default function PosCard() {
 
 
 
-     /*useEffect(() => {
-            //Condicional para evitar duas chaamdas da Função de random number e Requisição
+     useEffect(() => {
+            //CORRIGIR DPS DUAS CHAMADAS DA API
 
-        if (!randomNumber) {
-            escolherNumeroAleatorio();
-        }
-            //Só irá chamar a requisição quando arrayClub não existir (Ou seja, não tiver sido chamada)
-            //E existir um número aleatório já criado
-            //Condicional AND
+            //armazena no storage a ultima req feita o tempo
+            const lastReq = localStorage.getItem('lastReq')
+            //limite maximo para outra req
+            const hourMiliSeconds =  36000000
             
-        if (!arrayClub && randomNumber) {
-            getMatch(randomNumber);
+            //If para verificar se ouve req ou se o tempo limite ultrapassou 1 hr para atualização de dados
+            //Caso um dos dois seja verdadeiro nesta condição, o if etnrará e chaamrá a api
+        if (!lastReq || Date.now() - lastReq >= hourMiliSeconds) {
+                getMatch();
+        }else{
+            //caso n esteja no tempo de refazer a req, pegamos o array que esta no storage e convertemos par ajson novamente
+            //e armazenamos no arrayClub para que os dados permaneçam mesmo no f5
+            const storedData = localStorage.getItem('array');
+            if (storedData) {
+                setArrayClub(JSON.parse(storedData));
+            }
         }
 
 
-    }, [randomNumber]); */
+    }, [arrayClub]); 
 
     return (
         <>
