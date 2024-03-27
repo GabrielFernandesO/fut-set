@@ -6,50 +6,50 @@ export default function PosCard() {
     const [randomNumber, setRandomNumber] = useState(null)
     const [arrayClub, setArrayClub] = useState(null)
 
-
-    //Requisição para API
-    async function getMatch() {
-
-        //Cria numero aleatorio
-        const numeros = [33, 40, 42, 47, 49, 50, 529, 530, 541, 496, 505, 489, 85, 212, 211, 228];
-        const indiceAleatorio = Math.floor(Math.random() * numeros.length);
-        //Aramazena o numero aleatorio cada vez q roda a function
-        const randomNumber = numeros[indiceAleatorio]
-
-        const options = {
-            method: 'GET',
-            url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
-            params: {
-                last: 1,
-                team: `${randomNumber}`,
-                season: '2023'
-            },
-            headers: {
-                'X-RapidAPI-Key': '56055e130dmshe17a666f9a8c569p1ac1f4jsn69aa95a23715',
-                'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
-            }
-        };
-
-        try {
-            const response = await axios.request(options);
-            //Armazena a resposta da API na variavel arrayClub
-            setArrayClub(response.data);
-            //Armazena o momento da hora q a req foi feita
-            localStorage.setItem('lastReq', Date.now())
-            //armazena o array em STRING no local storage pq ele só aceita string, logo precisa converter em string o json
-            //e depois converter para JSON.parse
-            localStorage.setItem('array', JSON.stringify(response.data))
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-
-
-
-
      useEffect(() => {
+        //Controler para que haja abort de reqs quando trocar de componente (o que faz com que o atual desmonte)
+        //Portanto tudo desde a req com o parametro de signal deve estar dentro do useEffect, que retona um abort
+        const controller = new AbortController()
+        //Requisição para API
+        async function getMatch() {
+    
+            //Cria numero aleatorio
+            const numeros = [33, 40, 42, 47, 49, 50, 529, 530, 541, 496, 505, 489, 85, 212, 211, 228];
+            const indiceAleatorio = Math.floor(Math.random() * numeros.length);
+            //Aramazena o numero aleatorio cada vez q roda a function
+            const randomNumber = numeros[indiceAleatorio]
+    
+            const options = {
+                method: 'GET',
+                url: 'https://api-football-v1.p.rapidapi.com/v3/fixtures',
+                params: {
+                    last: 1,
+                    team: `${randomNumber}`,
+                    season: '2023'
+                },
+                signal: controller.signal,
+                headers: {
+                    'X-RapidAPI-Key': '56055e130dmshe17a666f9a8c569p1ac1f4jsn69aa95a23715',
+                    'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
+                }
+            };
+    
+            try {
+                const response = await axios.request(options);
+                //Armazena a resposta da API na variavel arrayClub
+                setArrayClub(response.data);
+                //Armazena o momento da hora q a req foi feita
+                localStorage.setItem('lastReq', Date.now())
+                //armazena o array em STRING no local storage pq ele só aceita string, logo precisa converter em string o json
+                //e depois converter para JSON.parse
+                localStorage.setItem('array', JSON.stringify(response.data))
+                console.log(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+
             //EM AMBIENTE DE DEV O USEFFECT MONTA E REMONTA POR ISSO CHAMA 2X
             //MAS EM BUILD/ PRODUÇÃO NÃO IRÁ ACONTECER
 
@@ -69,6 +69,12 @@ export default function PosCard() {
             if (storedData) {
                 setArrayClub(JSON.parse(storedData));
             }
+        }
+        ///Quando desmonta o componente se estiver fazendo req ele cancela, isso melhora a performance da aplicação
+        //Sempre deve ser usado, ainda mais para aplicações cuja api retorna muitos dados
+        return () =>{
+            console.log('Desmontando componente e cancelando req');
+            controller.abort();
         }
 
         //Array de dependencias do useEffect faz com que quando mude de estado ele chame o useEffect
