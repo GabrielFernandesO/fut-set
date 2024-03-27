@@ -71,8 +71,10 @@ export default function PosCard() {
             }
         }
 
-
-    }, [arrayClub]); 
+        //Array de dependencias do useEffect faz com que quando mude de estado ele chame o useEffect
+        //No caso cquando arrayClub mudar de estado o useeffect é chamado.
+        //Por isso se for passar algum parametro, tem de verificar bem se não entra em looping.
+    }, []); 
 
     return (
         <>
