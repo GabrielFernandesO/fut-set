@@ -28,13 +28,14 @@ module.exports = {
       bubblegum: '#ff77e9',
       bermuda: '#78dcca',
       black: '#0c0a09',
-      gray: '#fafaf9',
+      gray: '#C0C0C0',
       blue_sky: '#7dd3fc',
       blue_sky_strong: '#0ea5e9',
       green: '#22c55e',
       gray_strong: '#6b7280',
       blue_dark: '#1E5480',
       gray_weak:'#D9D9D9',
+      dark_gray: '#A9A9A9'
       
 
 
