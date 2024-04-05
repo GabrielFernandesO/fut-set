@@ -1,9 +1,9 @@
 'use client'
 
-import MatchCard from "../../components/Cards/MatchCard"
-import Leagues from "../../components/Leagues/Leagues"
-import Odd from "../../components/Odd/Odd"
-import TablePlayers from "../../components/TablePlayers/TablePlayers"
+import MatchCard from "../components/Cards/MatchCard"
+import Leagues from "../components/Leagues/Leagues"
+import Odd from "../components/Odd/Odd"
+import TablePlayers from "../components/TablePlayers/TablePlayers"
 
 export default function Clubs(){
     return (

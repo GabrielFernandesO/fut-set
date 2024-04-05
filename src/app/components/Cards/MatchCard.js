@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import SkeletonLoading from "./SkeletonLoading"
 
+
 export default function MatchCard() {
     const [arrayClub, setArrayClub] = useState(null)
 
@@ -70,6 +71,8 @@ export default function MatchCard() {
                 const arrayData = JSON.parse(storedData)
                 console.log('JSON TIMEEEEEEEE',arrayData)
                 setArrayClub(arrayData);
+              
+               
             }
         }
         ///Quando desmonta o componente se estiver fazendo req ele cancela, isso melhora a performance da aplicação
