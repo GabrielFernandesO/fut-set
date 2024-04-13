@@ -39,7 +39,7 @@ export default function NavBar() {
                         <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/news"}>NEWS</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/clubs"}>TOP MATCHES</Link>
+                        <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/topmatches"}>TOP MATCHES</Link>
                     </li>
                     <li>
                         <Link className="hover:text-blue_weak transition duration-300 font-semibold" href={"/leagues"}>LEAGUES</Link>

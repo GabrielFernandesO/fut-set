@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Clubs'
+    title: 'TopMatches'
   }
   export default function ClubsLayout({ children }) {
     return children

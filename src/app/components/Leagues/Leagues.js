@@ -49,12 +49,12 @@ export default function Leagues() {
         if (!lastReq || Date.now() - lastReq >= timeForReq) {
             getLeague();
             //Caso não satisfaça a condição, o else mantem os dados no localStorage e a req fica travada
-        }else{
+        } else {
             const storageData = localStorage.getItem('arrayLeagues');
-            if(storageData){
+            if (storageData) {
                 const storageDataJson = JSON.parse(storageData)
                 setArrayLeague(storageDataJson)
-               
+
             }
         }
 
@@ -70,21 +70,25 @@ export default function Leagues() {
 
 
     return (
-        <div className="w-full bg-branco h-96 rounded-xl shadow-lg">
-            <div className="bg-bege h-10 w-full rounded-t-xl justify-center flex items-center">
-                <h1 className="text-white">LEAGUES</h1>
+        <>
+
+            <div className="w-full bg-branco h-96 rounded-b-2xl  shadow-lg ">
+                <div className="bg-bege h-12 w-full rounded-t-xl justify-center flex items-center">
+                    <h1 className="text-white">LEAGUES</h1>
+                </div>
+                <section className="overflow-y-auto w-full h-full rounded-b-2xl">
+                    {arrayLeague ? (
+                        <>
+                            {arrayLeague.map((leagueData, index) => (
+                                <MiniLeague key={index} nomeLiga={leagueData.league.name} imgURL={leagueData.league.logo} />
+                            ))}
+                        </>
+                    ) : (
+                        <SkeletonLoading></SkeletonLoading>
+                    )}
+                </section>
             </div>
+        </>
 
-
-            {arrayLeague ? (
-                <>
-                    {arrayLeague.map((leagueData, index) => (
-                        <MiniLeague key={index} nomeLiga={leagueData.league.name} imgURL={leagueData.league.logo} />
-                    ))}
-                </>
-            ) : (
-                <SkeletonLoading></SkeletonLoading>
-            )}
-        </div>
     )
 }

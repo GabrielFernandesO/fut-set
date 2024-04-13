@@ -15,3 +15,24 @@
 * input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important;
 }
+
+::-webkit-scrollbar {
+    width: 8px; /* largura da barra de rolagem */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* cor de fundo */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* cor do "handle" da barra de rolagem */
+    border-radius: 4px; /* borda arredondada */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* alteração de cor ao passar o mouse */
+  }
+

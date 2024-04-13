@@ -37,13 +37,13 @@ export default function RootLayout({ children }) {
           theme="light"
         />
 
-        {(pathName !== ('/login' || '/register')) && (
+        {(pathName !== '/login') && (pathName !== '/register') && (
           <NavBar></NavBar>
         )}
         <Suspense fallback={<Loading />}>
           {children}
         </Suspense>
-        {(pathName !== ('/login' || '/register')) && (
+        {(pathName !== '/login') && (pathName !== '/register') && (
           <Footer></Footer>
         )}
 

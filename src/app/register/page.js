@@ -1,101 +1,56 @@
 "use client"
 
-import Image from "next/image";
-import { FaRegEnvelope } from "react-icons/fa";
-import { MdOutlineLock } from "react-icons/md";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
 import { useState } from "react";
+import Input from '../components/Input/Input';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Register() {
+  const [fullName, setFullName] = useState(null);
+  const [nickname, setNickname] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null)
+  const [confirmPassword, setConfirmPassword] = useState(null);
 
-  const [showPassword, setShowPassword] = useState(false)
 
-  function togglePassword() {
-    setShowPassword(!showPassword)
+
+  async function register(e){
+    e.preventDefault()
+
+    const user = {
+      name: fullName,
+      nickname: nickname,
+      email: email,
+      password: password,
+      confirm_pass: confirmPassword
+    }
+    console.log('Register form Sended!', user)
+    toast.success('Register Confirm')
+    
   }
 
   return (
-    <main className="bg-blue flex flex-col items-center justify-center h-screen">
-      <div className="flex items-center flex-col bg-blue_dark h-[45rem] w-[27rem] rounded-xl ">
-        <div className="text-center mt-20">
-          <div className="h-32 w-36  flex-col flex items-center justify-center">
-            <Image src={'/logo.png'} width={190} height={64} alt='logoRegister' />
-            <h1 className=" text-gray_weak text-2xl ">REGISTER</h1>
-          </div>
-        </div>
-        <form className={`w-full  flex items-center flex-col space-y-8 form_login`}  >
-          <div className="flex flex-col mt-20 ">
-            <label className="text-gray_weak">Email:</label>
-            <div className="flex items-center w-[15rem] border-b-2 border-gray_weak focus-within:border-gray_strong pl-1">
-              <span className="pr-1">
-                <FaRegEnvelope className="text-gray_weak" />
-              </span>
-              <input type="email" autoComplete="off" className="bg-blue_dark h-7 w-64 border-0 outline-none " placeholder='Ex: you@example.com'></input>
-            </div>
-          </div>
-          <div className="flex flex-col mb-8" >
-            <label className="text-gray_weak">Password:</label>
-            <div className="flex items-center w-[15rem] border-b-2 border-gray_weak focus-within:border-gray_strong pl-1">
-              <span className="pr-0.5">
-                <MdOutlineLock className="text-gray_weak text-md" />
-              </span>
+    <main className="flex flex-col items-center h-screen">
 
-              <input type={!showPassword ? "password" : "text"}
-                className="bg-blue_dark h-7 w-64 border-0 outline-none " placeholder='Ex: 12345@' autoComplete="off"></input>
+    <div className="text-center mt-20">
+      <h1 className="text-2xl ">REGISTER</h1>
+    </div>
+    <form onSubmit={(e) => register(e)} className={` h-[30rem] w-[40rem] mt-8 flex items-center flex-col space-y-4 form_login`} >
+    
+      <Input name={"Full name"} type={'text'}  spanIcon={'FaRegUser'} placeholder={'Ex: Fernand Schimmit'} onChange={(e) => setFullName(e.target.value)}/>
+      <Input name={"Nickname"} type={'text'}  spanIcon={'FaNapster'} placeholder={'Ex: Fernand010'} onChange={(e) => setNickname(e.target.value)}/>
+      <Input name={"Email"} type={'email'}  spanIcon={'FaRegEnvelope'} placeholder={'Ex: Fernand010@gmail.com'} onChange={(e) => setEmail(e.target.value)}/>
+      <Input name={"Password"} type={'password'}  spanIcon={'FaUserLock'} placeholder={'Ex: 1234'} onChange={(e) => setPassword(e.target.value)}/>
+      <Input name={"Confirm-Password"} type={'password'}  spanIcon={'FaUserLock'} placeholder={'Ex: 1234'} onChange={(e) => setConfirmPassword(e.target.value)}/>
 
-
-              <span className="pr-2 cursor-pointer">
-                {!showPassword && (
-                  <LuEye className='text-gray_weak' onClick={togglePassword} />
-                )}
-                {showPassword && (
-                  <LuEyeOff className='text-gray_weak' onClick={togglePassword} />
-                )}
-              </span>
-
-            </div>
-          </div>
-          <div className="flex flex-col mt-8">
-            <label className="text-gray_weak">Confirm Password:</label>
-            <div className="flex items-center w-[15rem] border-b-2 border-gray_weak focus-within:border-gray_strong pl-1">
-              <span className="pr-0.5">
-                <MdOutlineLock className="text-gray_weak text-md" />
-              </span>
-
-              <input type={!showPassword ? "password" : "text"}
-                className="bg-blue_dark h-7 w-64 border-0 outline-none" placeholder='Ex: 12345@' autoComplete="off"></input>
-
-
-              <span className="pr-2 cursor-pointer">
-                {!showPassword && (
-                  <LuEye className='text-gray_weak' onClick={togglePassword} />
-                )}
-                {showPassword && (
-                  <LuEyeOff className='text-gray-weak' onClick={togglePassword} />
-                )}
-              </span>
-
-            </div>
-          </div>
-
-
-          <div className="">
-
-          </div>
-          <div>
-            <button className=" bg-blue h-8 w-28 rounded-lg text-white hover:bg-gray_strong mt-10">
-              REGISTER
-            </button>
-
-          </div>
-          <div>
-
-          </div>
-
-        </form>
+      <div>
+        <button className=" bg-blue_sky h-8 w-28 rounded-lg text-white hover:bg-blue_sky_strong mt-10">
+          REGISTER
+        </button>
       </div>
-    </main>
+    </form>
+
+  </main>
   );
 }

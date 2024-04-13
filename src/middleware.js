@@ -10,7 +10,7 @@ export function middleware(request) {
     // Verifique se o usuário está autenticado (por exemplo, verificando se um cookie de autenticação está presente)
     const loggedIn = request.cookies.get('loggedIn')
 
-    //Pega a URL de login
+    //Pega a URL de login e profile
     const signInURL = new URL('/login', request.url);
     const profileURL = new URL('/profile', request.url);
 
@@ -20,11 +20,8 @@ export function middleware(request) {
         //Então caso já esteja na rota login sem o token, prossiga com o código e renderize a página.
         //NextResponse
         if (request.nextUrl.pathname === '/login') {
-            
-            return NextResponse.next()
-            
+            return NextResponse.next();
         }
-        toast.error('You must be loggedIn')
         return NextResponse.redirect(signInURL);
     }
 
