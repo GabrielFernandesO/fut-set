@@ -1,4 +1,4 @@
-import MiniOdd from "../MiniCards/MiniOdd"
+import MiniOdd from "../../MiniCards/MiniOdd"
 export default function Odd (){
 
     return (

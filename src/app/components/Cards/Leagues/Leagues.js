@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MiniLeague from "../MiniCards/MiniLeague";
+import MiniLeague from "../../MiniCards/MiniLeague";
 import axios from 'axios';
 import SkeletonLoading from "./SkeletonLoading";
 

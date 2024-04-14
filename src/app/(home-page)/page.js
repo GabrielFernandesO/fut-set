@@ -1,9 +1,9 @@
 'use client'
 
-import MatchCard from "../components/Cards/MatchCard"
-import Leagues from "../components/Leagues/Leagues"
-import Odd from "../components/Odd/Odd"
-import TablePlayers from "../components/TablePlayers/TablePlayers"
+import MatchCard from "../components/Cards/MatchCard/MatchCard"
+import Leagues from "../components/Cards/Leagues/Leagues"
+import Odd from "../components/Cards/Odd/Odd"
+import TablePlayers from "../components/Cards/TablePlayers/TablePlayers"
 
 export default function Home() {
 
@@ -16,7 +16,6 @@ export default function Home() {
             </div>
             <section className="bg h-full w-1/2"></section>
             <div className="pt-4 pb-4 h-full w-1/4  flex-col flex items-center justifiy-center space-y-6 ">
-                <Odd></Odd>
                 <TablePlayers></TablePlayers>
             </div>
 

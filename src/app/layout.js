@@ -1,6 +1,7 @@
 'use client'
 
 import { Rajdhani } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import NavBar from './components/NavBar/NavBar'
 import { usePathname } from 'next/navigation'
@@ -9,10 +10,10 @@ import { Suspense } from 'react'
 import Loading from './loading'
 import { ToastContainer } from 'react-toastify'
 
+montserrat.className
 
-
-
-const rajdhani = Rajdhani({ subsets: ['latin'], weight: '400' })
+const montserrat = Montserrat({ subsets: ['latin'], weight: '600' })
+const rajdhani = Rajdhani({ subsets: ['latin'], weight: '600' })
 
 export default function RootLayout({ children }) {
 

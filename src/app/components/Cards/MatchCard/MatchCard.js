@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+
 import SkeletonLoading from "./SkeletonLoading"
+
+
+
 
 
 export default function MatchCard() {
@@ -88,24 +92,24 @@ export default function MatchCard() {
 
     return (
 
-        <div className=" bg-white h-36 w-full rounded-xl shadow-lg flex justify-center items-center">
+        <div className=" bg-white h-32 w-full rounded-xl shadow-lg flex justify-center items-center">
             {arrayClub ? (
                 <>
-                    <div className="w-1/3 space-y-2  flex flex-col items-center justify-center ">
-                        <div className="  h-16 w-16 rounded-full">
-                            <Image src={arrayClub.response[0].teams.home.logo} height={64} width={64} alt='logoHome'></Image>
+                    <div className="w-2/5 space-y-2  flex flex-col items-center justify-center ">
+                        <div>
+                            <Image src={arrayClub.response[0].teams.home.logo} height={45} width={45} alt='logoHome'></Image>
                         </div>
-                        <h1>{arrayClub.response[0].teams.home.name}</h1>
+                        <h1 className='text-sm'>{arrayClub.response[0].teams.home.name}</h1>
                     </div>
-                    <div className="h-full w-1/3  flex-col flex  items-center  ">
-                        <h3 className="mt-4 text-md text-gray_strong">{arrayClub.response[0].fixture.status.long}</h3>
-                        <h1 className="text-5xl font-bold"><span className="pr-2">{arrayClub.response[0].goals.home}</span>-<span className="pl-2">{arrayClub.response[0].goals.away}</span></h1>
+                    <div className="h-full w-1/3  flex-col flex  items-center  " >
+                        <h3 className="mt-4 text-sm text-gray_strong">{arrayClub.response[0].fixture.status.long}</h3>
+                        <h1 className="text-5xl font-bold"><span className={`pr-2 ${arrayClub.response[0].goals.home < arrayClub.response[0].goals.away ? 'text-gray_strong' : ''}`}>{arrayClub.response[0].goals.home}</span>-<span className={`pl-2 ${arrayClub.response[0].goals.away < arrayClub.response[0].goals.home ? 'text-gray_strong' : ''}`}>{arrayClub.response[0].goals.away}</span></h1>
                     </div>
-                    <div className="w-1/3 space-y-2 flex flex-col items-center justify-center ">
-                        <div className=" h-16 w-16 rounded-full">
-                            <Image src={arrayClub.response[0].teams.away.logo} height={64} width={64} alt='logoAway'></Image>
+                    <div className="w-2/5 space-y-2 flex flex-col items-center justify-center ">
+                        <div>
+                            <Image src={arrayClub.response[0].teams.away.logo} height={45} width={45} alt='logoAway'></Image>
                         </div>
-                        <h1>{arrayClub.response[0].teams.away.name}</h1>
+                        <h1 className='text-sm'>{arrayClub.response[0].teams.away.name}</h1>
                     </div>
                 </>
             ) : (
