@@ -1,9 +1,9 @@
 import MiniPlayer from "../../MiniCards/MiniPlayer/MiniPlayer"
 export default function TablePlayers() {
     return (
-        <section>
-            <div className=" bg-white h-80 w-72 rounded-xl shadow-lg">
-                <div className="bg-bege rounded-t-xl  h-10 w-72 flex items-center justify-center">
+        <section className="w-full h-full ">
+            <div className=" bg-white h-80 w-full rounded-xl shadow-lg">
+                <div className="bg-bege rounded-t-xl  h-10 w-full flex items-center justify-center">
                     <h1 className="text-white">TOP SCORES</h1>
                 </div>
                 <div className="flex justify-center items-center w-full bg-gray_weak p-2">

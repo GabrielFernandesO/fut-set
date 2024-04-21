@@ -95,7 +95,7 @@ export default function MiniPlayer() {
                   
                     {arrayScores.map((score, index) => (
                         <div className="bg-white h-16 w-full flex items-center hover:bg-gray cursor-pointer" key={index}>
-                            <div className=" h-12 w-72   flex items-center justify-center text-center">
+                            <div className=" h-full w-full   flex items-center justify-center text-center">
                                 <div className="flex w-3/12 justify-center items-center">
                                     <Image src={score.player.photo} width={40} height={40} alt='playerIMG' className='rounded-full' />
                                     <Image src={score.statistics[0].team.logo} width={15} height={15} alt='TeamLogo' className='mt-4' />

@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
 
-      <body className={rajdhani.className}>
+      <body className={`${rajdhani.className}`}>
       <ToastContainer
           position="top-right"
           autoClose={2000}

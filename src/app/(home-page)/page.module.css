@@ -1,0 +1,13 @@
+.imagePlaceholder img{
+    border-radius: 1.5%;
+}
+
+.imagePlaceholder {
+    filter: blur(8px); /* Defina o valor de desfoque desejado */
+    transition: filter 0.5s ease; /* Adiciona uma transição suave ao efeito de blur */
+    border-radius: 1.5%;
+  }
+  
+  .imagePlaceholder.loaded {
+    filter: blur(0); /* Remove o efeito de blur quando a imagem é carregada */
+  }
